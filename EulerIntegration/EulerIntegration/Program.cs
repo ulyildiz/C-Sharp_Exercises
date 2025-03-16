@@ -3,7 +3,6 @@
 
 class Program
 {
-
     public static double EulerIntegration(Func<double, double, double> f, double x0, double y0, double h, double x)
     {
         double y = y0;
