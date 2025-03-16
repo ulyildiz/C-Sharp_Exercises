@@ -6,20 +6,17 @@ class Program
     {
         return x*Math.Sin(2*x);
     }
+
     static double analytical_solution(double x)
     {
         return -(x * Math.Cos(2 * x)) / 2 + Math.Sin(2 * x) / 4;
-    }
-    static double Derivative(double x, double h = 1e-5)
-    {
-        return (Function(x + h) - Function(x - h)) / (2 * h);
     }
 
     public static double EulerIntegration(double xn, double yn, double eulerh, double upperlimit, double lowerlimit)
     {
         for (double i = lowerlimit; i < upperlimit; i += eulerh)
         {
-            yn = yn + eulerh * Derivative(xn); // ?
+            yn = yn + Function(xn) * eulerh;
             xn = xn + eulerh;
         }
         return yn;
@@ -27,11 +24,11 @@ class Program
 
     public static void Main()
     {
-        double xn = 0;
-        double yn = 0;
         double upperlimit = Math.PI;
         double lowerlimit = 0;
-        double eulerh = (upperlimit-lowerlimit)/7; // ?
+        double eulerh = (upperlimit-lowerlimit)/1000; // ?
+        double xn = lowerlimit;
+        double yn = 0;
 
         Console.WriteLine(EulerIntegration(xn, yn, eulerh, upperlimit, lowerlimit));
         Console.WriteLine(analytical_solution(upperlimit));
