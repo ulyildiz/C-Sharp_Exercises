@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+// This is not complete code, I will come back to it later (after getting understand some equations)
+
 namespace ClassExample2
 {
     internal class Constants // Changed from private to internal to fix CS1527  
